@@ -9,6 +9,10 @@ var message = document.getElementById('message'),
     feedback = document.getElementById('feedback');
 
 
+var username = prompt("Quel est votre pseudo? ");
+socket.emit('nick', username);
+
+
 // Emit Events
 btn.addEventListener('click', () => {
   socket.emit('chat-message', {
@@ -33,4 +37,13 @@ socket.on('chat-message', (data) => {
 
 socket.on('typing', (data) => {
   feedback.innerHTML = "<p><em>" + data + " is typing a message...</em></p>";
+});
+
+
+socket.on('nick', (username) => {
+  alert("Hello " + username);
+});
+
+socket.on('new_user', (username) => {
+  output.innerHTML += '<p><em>' + username + " is now connected</em></p>";
 });
