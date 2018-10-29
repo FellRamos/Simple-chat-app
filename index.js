@@ -23,4 +23,11 @@ var io = socket(server);
 // connections on io.
 io.on('connection', (socket) => {
   console.log('Somebody connected', socket.id);
+
+  //Listening for chat messages from client, and resend these messages to all clients
+  socket.on('chat-message', (data) => {
+    io.emit('chat-message', data);
+  });
+
+
 });
