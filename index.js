@@ -22,5 +22,5 @@ var io = socket(server);
 
 // connections on io.
 io.on('connection', (socket) => {
-  console.log('Somebody connected');
+  console.log('Somebody connected', socket.id);
 });
