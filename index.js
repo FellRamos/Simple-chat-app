@@ -15,3 +15,12 @@ var server = app.listen(8000, () => {
 
 // middleware to serve static files (in public folder)
 app.use(express.static('public'));
+
+
+//socket setup ( 'server' is the name of the server we want to work with)
+var io = socket(server);
+
+// connections on io.
+io.on('connection', (socket) => {
+  console.log('Somebody connected');
+});
