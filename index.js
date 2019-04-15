@@ -35,11 +35,16 @@ io.on('connection', (socket) => {
   //Listening for chat messages from client, and resend these messages to all clients
   socket.on('chat-message', (data) => {
     io.emit('chat-message', data);
-    console.log(data);
+    // console.log(data);
   });
 
   socket.on('typing', (data) => {
+    console.log(data)
     socket.broadcast.emit('typing', data);
+  });
+
+  socket.on('notTyping', () => {
+    socket.broadcast.emit('notTyping');
   });
 
   socket.on('disconnect', (socket) => {

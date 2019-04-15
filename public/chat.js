@@ -33,9 +33,17 @@ message.addEventListener('keypress', (k) => {
       message: message.value
     });
     message.value = '';
+  } else if (k.code !== 'Enter'){
+    socket.emit('typing', username);
   }
-  socket.emit('typing', handle.value);
-})
+});
+
+// Keyup to stop typing? -- The Keyup removes immediatly after "unpress" the key. But I won't let it do it unless the message.value is empty!
+message.addEventListener('keyup', () => {
+  if (message.value === ''){
+    socket.emit('notTyping');
+  }
+});
 
 
 //Listening Events
@@ -47,6 +55,10 @@ socket.on('chat-message', (data) => {
 
 socket.on('typing', (data) => {
   feedback.innerHTML = "<p><em>" + data + " is typing a message...</em></p>";
+});
+
+socket.on('notTyping', () => {
+  feedback.innerHTML = '';
 });
 
 
