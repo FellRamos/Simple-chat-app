@@ -23,7 +23,7 @@ app.use(express.static('public'));
 var io = socket(server);
 var users = [];
 var connections = [];
-
+let nick = '';
 
 // connections on io.
 io.on('connection', (socket) => {
@@ -35,6 +35,7 @@ io.on('connection', (socket) => {
   //Listening for chat messages from client, and resend these messages to all clients
   socket.on('chat-message', (data) => {
     io.emit('chat-message', data);
+    console.log(data);
   });
 
   socket.on('typing', (data) => {
@@ -50,6 +51,7 @@ io.on('connection', (socket) => {
   socket.on('nick', (username) => {
     socket.emit('nick', username);
     socket.broadcast.emit('new_user', username);
+    nick = username
   });
 
 

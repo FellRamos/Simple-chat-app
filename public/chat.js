@@ -15,11 +15,13 @@ socket.emit('nick', username);
 
 // Emit Events
 btn.addEventListener('click', () => {
-  socket.emit('chat-message', {
-    message: message.value,
-    handle: handle.value
-  });
-  message.value = '';
+  if(message.value !== ''){
+    socket.emit('chat-message', {
+      user: username,
+      message: message.value
+    });
+    message.value = '';
+  }
 });
 
 
@@ -31,7 +33,7 @@ message.addEventListener('keypress', () => {
 //Listening Events
 socket.on('chat-message', (data) => {
   feedback.innerHTML = '';
-  output.innerHTML += '<p><strong>' + data.handle + ':</strong> ' + data.message + '</p>';
+  output.innerHTML += '<p><strong>' + data.user + ':</strong> ' + data.message + '</p>';
 });
 
 
