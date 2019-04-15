@@ -1,5 +1,3 @@
-// git branch: br2
-
 var express = require('express'),
     socket = require('socket.io');
 
