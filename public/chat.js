@@ -25,7 +25,15 @@ btn.addEventListener('click', () => {
 });
 
 
-message.addEventListener('keypress', () => {
+// Keypress checker - if the keycode is Enter, we emit a chat-message event to the backend.
+message.addEventListener('keypress', (k) => {
+  if( k.code === 'Enter' && message.value !== ''){
+    socket.emit('chat-message', {
+      user: username,
+      message: message.value
+    });
+    message.value = '';
+  }
   socket.emit('typing', handle.value);
 })
 
