@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Real Time Chat</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+  <h1>Teste 1</h1>
+  <div id="chat"> <!-- Everything is here -->
+    <div id="chat-window"> <!-- window is displyaed here -->
+      <div id="output"></div> <!-- data is displayed here -->
+      <div id="feedback"></div>
+    </div>
+    <input type="text" id="handle" placeholder="handle" />
+    <input type="text" id="message" placeholder="message" />
+    <button id='button'>Send</button>
+  </div>
+  <script src="/chat.js"></script>
+</body>
+</html>
