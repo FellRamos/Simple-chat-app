@@ -4,14 +4,14 @@
   "description": "exercise chat",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/FellRamos/newChat.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Fell",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/FellRamos/newChat/issues"
   },
