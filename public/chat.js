@@ -1,5 +1,5 @@
 //make connection to Server
-var socket = io.connect('http://localhost:8000');
+var socket = io.connect('https://infinite-waters-45975.herokuapp.com/');
 
 // Query DOM
 var message = document.getElementById('message'),
