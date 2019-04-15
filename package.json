@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FellRamos/newChat.git"
+    "url": "git+https://github.com/FellRamos/Simple-chat-app.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/FellRamos/newChat/issues"
+    "url": "https://github.com/FellRamos/Simple-chat-app/issues"
   },
-  "homepage": "https://github.com/FellRamos/newChat#readme",
+  "homepage": "https://github.com/FellRamos/Simple-chat-app#readme",
   "dependencies": {
     "express": "^4.16.4",
     "socket.io": "^2.1.1"
